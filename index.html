@@ -1,0 +1,54 @@
+<button id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = { 
+    "key": "rzp_test_Iiaclirh1ZQLQC",
+    //"order_id":"order_C1JoLbuSfMR6gX",
+    "amount": "100", // 2000 paise = INR 20
+    "recurring" : "1",
+    "name": "Merchant Name",
+    "description": "Purchase Description",
+    "image": "/your_logo.png",
+    "method":"netbanking",
+    "callback_url": "https://stage.cashe.co.in/razorpay/callback/getRazorPayResponse/9695",
+   // "redirect":"true",
+   // "handler": function (response){
+       //alert(response.razorpay_order_id),
+        //alert(response.razorpay_payment_id);
+        //alert(response.razorpay_signature);
+   // },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "ayyo@test.com",
+        "contact":"+919999999999"
+       // "method":"upi"
+    },
+    "notes": {
+        "address": "Hello World"
+    },
+    
+    
+    "theme": {
+        "color": "#F37254",
+        "hide_topbar":"true", //back button stop
+        "close_button":"false" //close button
+    },
+    "modal":{
+        "escape":"false",
+        "backdropclose":"true",
+        "ondismiss":"true"
+
+    },
+      "timeout":600
+  
+
+};
+var rzp1 = new Razorpay(options);
+
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+
