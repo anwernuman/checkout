@@ -65,7 +65,9 @@ var options = {
     "modal":{
         "escape":"false"
       //  "backdropclose":"true",
-      //  "ondismiss":"true"
+       "ondismiss":function (){
+        console.log('Checkout form closed');
+    }
     },
       "timeout":600
   
